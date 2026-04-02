@@ -1,6 +1,6 @@
 # scrypy
 
-Python implementation of binomial deviance feature selection for single-cell RNA-Seq, based on the multinomial model from [Townes et al. (2019)](https://doi.org/10.1186/s13059-019-1861-6) and the [`scry`](https://bioconductor.org/packages/scry.html) R package.
+Python implementation of binomial deviance feature selection for **single-cell count data** (non-negative integer matrices), following the multinomial-model view in [Townes et al. (2019)](https://doi.org/10.1186/s13059-019-1861-6) and the [`scry`](https://bioconductor.org/packages/scry.html) R package. Typical uses include scRNA-seq UMIs and scATAC-seq (or similar) peak or bin counts in `AnnData`; the method ranks **features** (`adata.var`) by deviance under a common null proportion.
 
 ## Installation
 
@@ -12,18 +12,20 @@ pip install scrypy
 
 ```python
 import scrypy
+import scanpy
 
+adata = scanpy.read_h5ad('path/to/adata.h5ad')
 scrypy.highly_deviant_genes(adata, n_top_genes=2000)
 ```
 
-Expects raw (or raw-like) non-negative integer UMI counts in `adata.X` or a named layer.
+Expects raw (or raw-like) **non-negative integer counts** in `adata.X` or a named layer (e.g. UMIs, or ATAC fragments per peak).
 
 ### Parameters
 
 | Parameter | Type | Description |
 |---|---|---|
-| `adata` | `AnnData` | Annotated data matrix (cells x genes) |
-| `n_top_genes` | `int` | Number of top genes to select |
+| `adata` | `AnnData` | Count matrix (cells × features; e.g. genes or peaks) |
+| `n_top_genes` | `int` | Number of top features to select (Scanpy-style name) |
 | `layer` | `str \| None` | Layer to use instead of `adata.X` |
 | `subset` | `bool` | Subset `adata` to selected genes (default `False`) |
 | `inplace` | `bool` | Write results into `adata.var` (default `True`) |
@@ -34,12 +36,12 @@ Expects raw (or raw-like) non-negative integer UMI counts in `adata.X` or a name
 
 When `inplace=True`:
 
-- `adata.var['binomial_deviance']` -- deviance score per gene
+- `adata.var['binomial_deviance']` -- deviance score per feature
 - `adata.var['highly_variable']` -- boolean selection mask
 
 ## Citation
 
-If you use `scrypy`, please cite the original method paper:
+If you use `scrypy`, cite the original method paper (written in the scRNA-seq setting; the deviance feature-screening idea applies to other **multinomial-style count tables** as well):
 
 > Townes FW, Hicks SC, Aryee MJ, Irizarry RA (2019).
 > **Feature selection and dimension reduction for single-cell RNA-Seq based on a multinomial model.**
