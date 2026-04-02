@@ -12,9 +12,7 @@ pip install scrypy
 
 ```python
 import scrypy
-import scanpy
 
-adata = scanpy.read_h5ad('path/to/adata.h5ad')
 scrypy.highly_deviant_genes(adata, n_top_genes=2000)
 ```
 
