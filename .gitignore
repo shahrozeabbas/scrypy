@@ -12,3 +12,4 @@ venv/
 .env
 .coverage
 htmlcov/
+*.pdf
