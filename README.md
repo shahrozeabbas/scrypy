@@ -23,7 +23,7 @@ Expects raw (or raw-like) **non-negative integer counts** in `adata.X` or a name
 | Parameter | Type | Description |
 |---|---|---|
 | `adata` | `AnnData` | Count matrix (cells × features; e.g. genes or peaks) |
-| `n_top_genes` | `int` | Number of top features to select (Scanpy-style name) |
+| `n_top_genes` | `int` | Number of top features to select |
 | `layer` | `str \| None` | Layer to use instead of `adata.X` |
 | `subset` | `bool` | Subset `adata` to selected genes (default `False`) |
 | `inplace` | `bool` | Write results into `adata.var` (default `True`) |

@@ -1,6 +1,9 @@
 cff-version: '1.2.0'
 message: 'If you use scrypy, please cite the method paper (preferred) and optionally the software.'
 title: 'scrypy'
+authors:
+  - family-names: 'Abbas'
+    given-names: 'Shahroze'
 type: 'software'
 version: '0.1.0'
 license: 'MIT'

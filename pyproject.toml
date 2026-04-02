@@ -6,6 +6,7 @@ build-backend = "hatchling.build"
 name = "scrypy"
 version = "0.1.0"
 description = "Binomial deviance feature selection for single-cell count data (AnnData)"
+authors = [{ name = 'Shahroze Abbas' }]
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
