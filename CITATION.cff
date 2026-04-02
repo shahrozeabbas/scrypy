@@ -1,0 +1,25 @@
+cff-version: '1.2.0'
+message: 'If you use scrypy, please cite the method paper (preferred) and optionally the software.'
+title: 'scrypy'
+type: 'software'
+version: '0.1.0'
+license: 'MIT'
+abstract: 'Python implementation of binomial deviance feature selection for single-cell RNA-Seq (AnnData), based on Townes et al. 2019.'
+preferred-citation:
+  type: 'article'
+  title: 'Feature selection and dimension reduction for single-cell RNA-Seq based on a multinomial model'
+  authors:
+    - family-names: 'Townes'
+      given-names: 'F. William'
+    - family-names: 'Hicks'
+      given-names: 'Stephanie C.'
+    - family-names: 'Aryee'
+      given-names: 'Martin J.'
+    - family-names: 'Irizarry'
+      given-names: 'Rafael A.'
+  journal: 'Genome Biology'
+  year: 2019
+  volume: 20
+  article-number: 295
+  doi: '10.1186/s13059-019-1861-6'
+  url: 'https://link.springer.com/article/10.1186/s13059-019-1861-6'
