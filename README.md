@@ -13,7 +13,7 @@ pip install scrypy
 ```python
 import scrypy
 
-scrypy.highly_deviant_genes(adata, n_top_genes=2000)
+scrypy.highly_deviant_features(adata, n_top_features=2000)
 ```
 
 Expects raw (or raw-like) **non-negative integer counts** in `adata.X` or a named layer (e.g. UMIs, or ATAC fragments per peak).
@@ -23,9 +23,9 @@ Expects raw (or raw-like) **non-negative integer counts** in `adata.X` or a name
 | Parameter | Type | Description |
 |---|---|---|
 | `adata` | `AnnData` | Count matrix (cells × features; e.g. genes or peaks) |
-| `n_top_genes` | `int` | Number of top features to select |
+| `n_top_features` | `int` | Number of top features to select |
 | `layer` | `str \| None` | Layer to use instead of `adata.X` |
-| `subset` | `bool` | Subset `adata` to selected genes (default `False`) |
+| `subset` | `bool` | Subset `adata` to selected features (default `False`) |
 | `inplace` | `bool` | Write results into `adata.var` (default `True`) |
 | `batch_key` | `str \| None` | Obs key for batch; deviance is summed across batches |
 | `check_values` | `bool` | Warn if data are not non-negative integers (default `True`) |

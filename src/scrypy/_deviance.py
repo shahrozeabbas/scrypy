@@ -177,17 +177,17 @@ def _compute_deviance_batch(
     return total
 
 
-def highly_deviant_genes(
+def highly_deviant_features(
     adata: AnnData,
     *,
     layer: str | None = None,
-    n_top_genes: int,
+    n_top_features: int,
     subset: bool = False,
     inplace: bool = True,
     batch_key: str | None = None,
     check_values: bool = True,
 ) -> pd.DataFrame | None:
-    """Select highly deviant genes via binomial deviance (multinomial null).
+    """Select highly deviant features via binomial deviance (multinomial null).
 
     Writes ``adata.var['binomial_deviance']``, ``adata.var['highly_variable']``,
     and ``adata.uns['hvg']`` when ``inplace=True``.
@@ -195,13 +195,13 @@ def highly_deviant_genes(
     Parameters
     ----------
     adata
-        Annotated data matrix (cells × genes); expects raw-like counts.
+        Annotated data matrix (cells × features); expects raw-like counts.
     layer
         If set, use ``adata.layers[layer]`` instead of ``adata.X``.
-    n_top_genes
-        Number of top genes to mark as ``highly_variable``.
+    n_top_features
+        Number of top features to mark as ``highly_variable``.
     subset
-        If True, subset ``adata`` to highly deviant genes (inplace path only).
+        If True, subset ``adata`` to highly deviant features (inplace path only).
     inplace
         If False, return a DataFrame and do not modify ``adata``.
     batch_key
@@ -211,7 +211,7 @@ def highly_deviant_genes(
 
     Returns
     -------
-    None if ``inplace=True``, else a DataFrame indexed by gene names with
+    None if ``inplace=True``, else a DataFrame indexed by feature names with
     columns ``binomial_deviance`` and ``highly_variable``.
     """
     x = _get_x(adata, layer)
@@ -242,10 +242,10 @@ def highly_deviant_genes(
 
     dev = np.nan_to_num(dev, nan=0.0, posinf=0.0, neginf=0.0)
 
-    n_top = int(n_top_genes)
+    n_top = int(n_top_features)
     if n_top > n_vars:
         warnings.warn(
-            f'n_top_genes ({n_top}) > n_vars ({n_vars}); marking all genes',
+            f'n_top_features ({n_top}) > n_vars ({n_vars}); marking all features',
             UserWarning,
             stacklevel=2,
         )
