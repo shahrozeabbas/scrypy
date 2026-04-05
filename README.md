@@ -1,6 +1,10 @@
 # scrypy
 
-Python implementation of binomial deviance feature selection for **single-cell count data** (non-negative integer matrices), following the multinomial-model view in [Townes et al. (2019)](https://doi.org/10.1186/s13059-019-1861-6) and the [`scry`](https://bioconductor.org/packages/scry.html) R package. Typical uses include scRNA-seq UMIs and scATAC-seq (or similar) peak or bin counts in `AnnData`; the method ranks **features** (`adata.var`) by deviance under a common null proportion.
+[![PyPI version](https://img.shields.io/pypi/v/scrypy)](https://pypi.org/project/scrypy/)
+[![Python versions](https://img.shields.io/pypi/pyversions/scrypy)](https://pypi.org/project/scrypy/)
+[![DOI](https://zenodo.org/badge/1199962689.svg)](https://doi.org/10.5281/zenodo.19425189)
+
+Python implementation of binomial deviance feature selection for **single-cell count data** (non-negative integer matrices), following the multinomial-model view in [Townes et al. (2019)](https://doi.org/10.1186/s13059-019-1861-6) and the [`scry`](https://bioconductor.org/packages/release/bioc/html/scry.html) R package. Typical uses include scRNA-seq UMIs and scATAC-seq (or similar) peak or bin counts in `AnnData`; the method ranks **features** (`adata.var`) by deviance under a common null proportion.
 
 ## Installation
 

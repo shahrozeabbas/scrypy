@@ -1,11 +1,13 @@
 cff-version: '1.2.0'
-message: 'If you use scrypy, please cite the method paper (preferred) and optionally the software.'
+message: 'If you use scrypy, please cite this software and the original method paper.'
 title: 'scrypy'
 authors:
   - family-names: 'Abbas'
     given-names: 'Shahroze'
 type: 'software'
 version: '0.1.0'
+doi: '10.5281/zenodo.19425189'
+url: 'https://doi.org/10.5281/zenodo.19425189'
 license: 'MIT'
 abstract: 'Python implementation of binomial deviance feature selection for single-cell RNA-Seq (AnnData), based on Townes et al. 2019.'
 preferred-citation:
